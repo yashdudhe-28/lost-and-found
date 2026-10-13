@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost Item - Campus Lost & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">🎓 Campus Lost & Found</div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#">Lost Items</a>
+            <a href="#">Found Items</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+
+    <section class="form-section">
+
+        <h1>🔴 Report Lost Item</h1>
+
+        <p>Enter the details of your lost item.</p>
+
+        <form id="lostItemForm">
+
+            <label>Item Name</label>
+            <input type="text" id="itemName" placeholder="Example: Black Wallet" required>
+
+            <label>Category</label>
+            <select id="category" required>
+                <option value="">Select Category</option>
+                <option>Electronics</option>
+                <option>Documents</option>
+                <option>Books</option>
+                <option>Accessories</option>
+                <option>Clothing</option>
+                <option>Other</option>
+            </select>
+
+            <label>Lost Location</label>
+            <input type="text" id="location" placeholder="Example: JSPM Library" required>
+
+            <label>Lost Date</label>
+            <input type="date" id="lostDate" required>
+
+            <label>Description</label>
+            <textarea id="description"
+                      placeholder="Describe the item..."
+                      rows="5"
+                      required></textarea>
+
+            <label>Upload Item Image</label>
+            <input type="file" id="itemImage" accept="image/*">
+
+            <button type="submit" class="btn lost-btn">
+                Submit Lost Item
+            </button>
+
+        </form>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Campus Lost & Found</p>
+    </footer>
+
+    <script>
+        document.getElementById("lostItemForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const itemName = document.getElementById("itemName").value;
+
+            alert("Lost item reported successfully: " + itemName);
+
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

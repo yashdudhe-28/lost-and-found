@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Lost &amp; Found</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo">🎓 Campus Lost &amp; Found</a>
+
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="#">Lost Items</a>
+            <a href="#">Found Items</a>
+            <a href="#" class="nav-login">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="hero-content">
+            <h1>Lost something on campus? Let's find it.</h1>
+
+            <p>
+                Report what you lost, report what you found, and help
+                your campus community get their things back.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="report-lost.html" class="btn lost-btn">I lost something</a>
+                <a href="report-found.html" class="btn found-btn">I found something</a>
+            </div>
+        </div>
+
+        <!-- Sample item tags -->
+        <div class="tag-stack" aria-hidden="true">
+            <div class="item-tag tag-lost">
+                <span class="tag-status">Lost</span>
+                <strong>Black wallet</strong>
+                <small>Last seen near the library</small>
+            </div>
+            <div class="item-tag tag-found">
+                <span class="tag-status">Found</span>
+                <strong>Scientific calculator</strong>
+                <small>Handed in at Block C desk</small>
+            </div>
+            <div class="item-tag tag-lost">
+                <span class="tag-status">Lost</span>
+                <strong>Blue water bottle</strong>
+                <small>Left in the canteen</small>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Search -->
+    <section class="search-section">
+        <h2>Find lost &amp; found items</h2>
+        <p>Search items reported by students on campus.</p>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for calculator, wallet, keys..."
+                aria-label="Search items"
+            >
+            <button onclick="searchItem()">Search</button>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats">
+        <div class="stat-card stat-lost">
+            <h2 id="lostCount">0</h2>
+            <p>Lost items</p>
+        </div>
+
+        <div class="stat-card stat-found">
+            <h2 id="foundCount">0</h2>
+            <p>Found items</p>
+        </div>
+
+        <div class="stat-card stat-returned">
+            <h2 id="returnedCount">0</h2>
+            <p>Items returned</p>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-section">
+        <h2>How it works</h2>
+
+        <div class="steps">
+
+            <div class="step-card">
+                <div class="step-icon">📢</div>
+                <h3>Report</h3>
+                <p>Post an item you lost or found on campus.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-icon">🔍</div>
+                <h3>Search</h3>
+                <p>Browse items reported by other students.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-icon">🤝</div>
+                <h3>Connect</h3>
+                <p>Contact the owner and return the item.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-icon">🤖</div>
+                <h3>AI match</h3>
+                <p>AI helps spot visually similar items.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Campus Lost &amp; Found. Helping students find what they lost.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

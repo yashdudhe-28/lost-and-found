@@ -1,0 +1,564 @@
+/* ---------- Design tokens ---------- */
+
+:root {
+    --ink: #14213d;
+    --muted: #5b6478;
+    --bg: #f3f5fa;
+    --card: #ffffff;
+    --line: #e1e6f0;
+    --blue: #2f5bea;
+    --lost: #e5484d;
+    --lost-dark: #c93a3f;
+    --found: #1f9d6b;
+    --found-dark: #17825a;
+    --tag: #ffd25e;
+    --shadow: 0 6px 24px rgba(20, 33, 61, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-family: "Bricolage Grotesque", "DM Sans", Arial, sans-serif;
+    line-height: 1.15;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 2px;
+}
+
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    height: 72px;
+    padding: 0 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    font-family: "Bricolage Grotesque", Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar nav a {
+    padding: 8px 14px;
+    border-radius: 8px;
+
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 500;
+
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--ink);
+    background-color: var(--bg);
+}
+
+.navbar nav a.nav-login {
+    background-color: var(--ink);
+    color: #fff;
+}
+
+.navbar nav a.nav-login:hover {
+    background-color: var(--blue);
+}
+
+
+/* ---------- Hero ---------- */
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 8% 70px;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 60px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+}
+
+.hero p {
+    max-width: 480px;
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 32px;
+}
+
+
+/* ---------- Buttons ---------- */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 28px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.lost-btn {
+    background-color: var(--lost);
+}
+
+.lost-btn:hover {
+    background-color: var(--lost-dark);
+}
+
+.found-btn {
+    background-color: var(--found);
+}
+
+.found-btn:hover {
+    background-color: var(--found-dark);
+}
+
+
+/* ---------- Hero item tags ---------- */
+
+.tag-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.item-tag {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    padding: 18px 22px 18px 50px;
+
+    background-color: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+/* the "string hole" of a luggage tag */
+.item-tag::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+
+    border-radius: 50%;
+    background-color: var(--bg);
+    border: 2px solid var(--line);
+}
+
+.item-tag strong {
+    font-size: 17px;
+}
+
+.item-tag small {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.tag-status {
+    align-self: flex-start;
+    margin-bottom: 4px;
+    padding: 2px 10px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.tag-lost .tag-status {
+    background-color: var(--lost);
+}
+
+.tag-found .tag-status {
+    background-color: var(--found);
+}
+
+.item-tag:nth-child(1) { transform: rotate(-2deg); }
+.item-tag:nth-child(2) { transform: rotate(1.5deg); margin-left: 30px; }
+.item-tag:nth-child(3) { transform: rotate(-1deg); }
+
+
+/* ---------- Search ---------- */
+
+.search-section {
+    text-align: center;
+    padding: 60px 20px 50px;
+    background-color: var(--card);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.search-section h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.search-section p {
+    color: var(--muted);
+    margin-bottom: 26px;
+}
+
+.search-box {
+    display: flex;
+    max-width: 650px;
+    margin: auto;
+
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 16px 18px;
+
+    border: 1px solid var(--line);
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--ink);
+}
+
+.search-box button {
+    padding: 16px 30px;
+
+    border: none;
+    border-radius: 0 12px 12px 0;
+
+    background-color: var(--blue);
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: background-color 0.15s ease;
+}
+
+.search-box button:hover {
+    background-color: #2447c0;
+}
+
+
+/* ---------- Statistics ---------- */
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+
+    padding: 50px 20px 20px;
+}
+
+.stat-card {
+    width: 230px;
+    padding: 26px 20px;
+
+    text-align: center;
+
+    background-color: var(--card);
+    border-radius: 14px;
+    border-top: 5px solid var(--blue);
+    box-shadow: var(--shadow);
+}
+
+.stat-card h2 {
+    font-size: 42px;
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.stat-lost { border-top-color: var(--lost); }
+.stat-found { border-top-color: var(--found); }
+.stat-returned { border-top-color: var(--blue); }
+
+
+/* ---------- How it works ---------- */
+
+.how-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 8% 70px;
+
+    text-align: center;
+}
+
+.how-section > h2 {
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.step-card {
+    padding: 30px 22px;
+
+    background-color: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+}
+
+.step-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    background-color: var(--tag);
+    border-radius: 50%;
+}
+
+.step-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.step-card p {
+    color: var(--muted);
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    background-color: var(--ink);
+    color: #cfd6e6;
+    text-align: center;
+    padding: 28px 20px;
+}
+
+
+/* ---------- Report forms (report-lost.html / report-found.html) ---------- */
+
+.form-section {
+    width: 90%;
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 34px;
+
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.form-section h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-section p {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.form-section label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.form-section input,
+.form-section select,
+.form-section textarea {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccd3e0;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.form-section textarea {
+    resize: vertical;
+}
+
+.form-section button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--lost);
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form-section button:hover {
+    background: var(--lost-dark);
+}
+
+/* Green submit button for the "found item" form: add class="found-submit" */
+.form-section button.found-submit {
+    background: var(--found);
+}
+
+.form-section button.found-submit:hover {
+    background: var(--found-dark);
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 50px;
+    }
+
+    .tag-stack {
+        max-width: 420px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .navbar {
+        height: auto;
+        padding: 14px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    .search-box {
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: none;
+    }
+
+    .search-box input {
+        border-right: 1px solid var(--line);
+        border-radius: 12px;
+    }
+
+    .search-box button {
+        border-radius: 12px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .item-tag:nth-child(2) {
+        margin-left: 0;
+    }
+}

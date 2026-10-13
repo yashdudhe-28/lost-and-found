@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report Found Item - Campus Lost & Found</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🎓 Campus Lost & Found</div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="report-lost.html">Lost Items</a>
+            <a href="report-found.html">Found Items</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+
+
+    <!-- Found Item Form -->
+    <section class="form-section">
+
+        <h1>🟢 Report Found Item</h1>
+
+        <p>Found something on campus? Help its owner find it.</p>
+
+        <form id="foundItemForm">
+
+            <label>Item Name</label>
+
+            <input
+                type="text"
+                id="itemName"
+                placeholder="Example: Black Wallet"
+                required
+            >
+
+
+            <label>Category</label>
+
+            <select id="category" required>
+
+                <option value="">Select Category</option>
+
+                <option>Electronics</option>
+                <option>Documents</option>
+                <option>Books</option>
+                <option>Accessories</option>
+                <option>Clothing</option>
+                <option>Other</option>
+
+            </select>
+
+
+            <label>Found Location</label>
+
+            <input
+                type="text"
+                id="location"
+                placeholder="Example: College Library"
+                required
+            >
+
+
+            <label>Found Date</label>
+
+            <input
+                type="date"
+                id="foundDate"
+                required
+            >
+
+
+            <label>Description</label>
+
+            <textarea
+                id="description"
+                rows="5"
+                placeholder="Describe the item..."
+                required
+            ></textarea>
+
+
+            <label>Upload Item Image</label>
+
+            <input
+                type="file"
+                id="itemImage"
+                accept="image/*"
+            >
+
+
+            <button type="submit">
+                Submit Found Item
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Campus Lost & Found</p>
+    </footer>
+
+
+    <script>
+
+        document
+            .getElementById("foundItemForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const itemName =
+                    document.getElementById("itemName").value;
+
+                alert(
+                    "Found item reported successfully: "
+                    + itemName
+                );
+
+                this.reset();
+
+            });
+
+    </script>
+
+</body>
+
+</html>
