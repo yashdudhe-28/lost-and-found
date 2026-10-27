@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Found Items - Campus Lost & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🎓 Campus Lost & Found</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="report-lost.html">Lost Items</a>
+            <a href="report-found.html">Report Found</a>
+        </div>
+    </nav>
+
+    <section class="form-section">
+        <h1>🟢 Found Items</h1>
+        <p>Check the items found on campus. If an item belongs to you, submit a claim.</p>
+
+        <div class="found-item">
+            <h2>Black Wallet</h2>
+            <p><strong>Category:</strong> Accessories</p>
+            <p><strong>Location:</strong> College Library</p>
+            <p><strong>Description:</strong> A black wallet found near the library.</p>
+            <button onclick="claimItem('Black Wallet')">
+                Claim This Item
+            </button>
+        </div>
+
+        <hr>
+
+        <div class="found-item">
+            <h2>Scientific Calculator</h2>
+            <p><strong>Category:</strong> Electronics</p>
+            <p><strong>Location:</strong> Classroom 204</p>
+            <p><strong>Description:</strong> A calculator found after class.</p>
+            <button onclick="claimItem('Scientific Calculator')">
+                Claim This Item
+            </button>
+        </div>
+
+        <hr>
+
+        <div class="found-item">
+            <h2>Blue Notebook</h2>
+            <p><strong>Category:</strong> Books</p>
+            <p><strong>Location:</strong> College Canteen</p>
+            <p><strong>Description:</strong> A blue notebook found on a table.</p>
+            <button onclick="claimItem('Blue Notebook')">
+                Claim This Item
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Campus Lost & Found</p>
+    </footer>
+
+    <script>
+        function claimItem(itemName) {
+            window.location.href =
+                "claim-item.html?item=" + encodeURIComponent(itemName);
+        }
+    </script>
+
+</body>
+</html>

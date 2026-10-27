@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Item - Campus Lost & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🎓 Campus Lost & Found</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="report-lost.html">Lost Items</a>
+            <a href="report-found.html">Report Found</a>
+            <a href="found-items.html">Found Items</a>
+        </div>
+    </nav>
+
+    <section class="form-section">
+        <h1>📩 Claim Found Item</h1>
+        <p>Think this item belongs to you? Submit your details for verification.</p>
+
+        <form id="claimForm">
+
+            <label>Item Name</label>
+            <input type="text" id="itemName"
+                   placeholder="Example: Black Wallet" required>
+
+            <label>Your Full Name</label>
+            <input type="text" id="claimerName"
+                   placeholder="Enter your name" required>
+
+            <label>College Email</label>
+            <input type="email" id="email"
+                   placeholder="Enter your email" required>
+
+            <label>Why do you think this is your item?</label>
+            <textarea id="claimReason" rows="4"
+                      placeholder="Describe identifying details..."
+                      required></textarea>
+
+            <label>Additional Details</label>
+            <textarea id="additionalDetails" rows="3"
+                      placeholder="Any other information (optional)"></textarea>
+
+            <button type="submit" class="btn">
+                I Think This Is My Item
+            </button>
+
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 Campus Lost & Found</p>
+    </footer>
+
+    <script>
+        // Automatically fill item name from Found Items page
+        const params = new URLSearchParams(window.location.search);
+        const selectedItem = params.get("item");
+
+        if (selectedItem) {
+            document.getElementById("itemName").value = selectedItem;
+        }
+
+        // Handle claim form submission
+        document.getElementById("claimForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const claim = {
+                    itemName: document.getElementById("itemName").value.trim(),
+                    claimerName: document.getElementById("claimerName").value.trim(),
+                    email: document.getElementById("email").value.trim(),
+                    claimReason: document.getElementById("claimReason").value.trim(),
+                    additionalDetails: document.getElementById("additionalDetails").value.trim(),
+                    status: "Pending verification"
+                };
+
+                console.log("Claim Request:", claim);
+
+                alert(
+                    "Claim request submitted successfully!\n\n" +
+                    "Item: " + claim.itemName +
+                    "\nName: " + claim.claimerName +
+                    "\nStatus: " + claim.status
+                );
+
+                this.reset();
+            });
+    </script>
+
+</body>
+</html>

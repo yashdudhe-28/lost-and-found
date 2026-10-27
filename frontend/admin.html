@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Campus Lost & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .admin-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .admin-table th {
+            background: #173b57;
+            color: white;
+        }
+
+        .admin-table button {
+            margin: 3px;
+            padding: 7px 10px;
+            cursor: pointer;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .admin-note {
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">🎓 Campus Lost & Found</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="found-items.html">Found Items</a>
+            <a href="report-lost.html">Report Lost</a>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+
+        <h1>🛡️ Admin Panel</h1>
+        <p>Manage reported items and update their status.</p>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="itemsTable">
+                <tr>
+                    <td>Black Wallet</td>
+                    <td>Found</td>
+                    <td>College Library</td>
+                    <td class="status">Pending</td>
+                    <td>
+                        <button onclick="updateStatus(this, 'Approved')">
+                            Approve
+                        </button>
+                        <button onclick="updateStatus(this, 'Rejected')">
+                            Reject
+                        </button>
+                        <button onclick="updateStatus(this, 'Returned')">
+                            Mark Returned
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Scientific Calculator</td>
+                    <td>Found</td>
+                    <td>Classroom 204</td>
+                    <td class="status">Pending</td>
+                    <td>
+                        <button onclick="updateStatus(this, 'Approved')">
+                            Approve
+                        </button>
+                        <button onclick="updateStatus(this, 'Rejected')">
+                            Reject
+                        </button>
+                        <button onclick="updateStatus(this, 'Returned')">
+                            Mark Returned
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Student ID Card</td>
+                    <td>Lost</td>
+                    <td>College Canteen</td>
+                    <td class="status">Pending</td>
+                    <td>
+                        <button onclick="updateStatus(this, 'Approved')">
+                            Approve
+                        </button>
+                        <button onclick="updateStatus(this, 'Rejected')">
+                            Reject
+                        </button>
+                        <button onclick="updateStatus(this, 'Returned')">
+                            Mark Returned
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="admin-note">
+            Note: This is a frontend demo using sample items.
+            Status changes are not saved permanently yet.
+        </p>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Campus Lost & Found</p>
+    </footer>
+
+    <script>
+        function updateStatus(button, newStatus) {
+            const row = button.closest("tr");
+            const statusCell = row.querySelector(".status");
+
+            statusCell.textContent = newStatus;
+
+            alert(
+                row.cells[0].textContent +
+                " status updated to: " + newStatus
+            );
+        }
+    </script>
+
+</body>
+</html>
